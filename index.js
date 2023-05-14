@@ -13,6 +13,15 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config()
 }
 
+const RateLimit = require('express-rate-limit');
+const limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 
 app.get("/", function (req, res) {
     res.render(__dirname + "/views/index.ejs", {})
