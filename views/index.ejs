@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Kaktus-checker</title>
+    <title>Kaktus-checker | Home</title>
 </head>
 <body>
     <style>
@@ -25,6 +26,14 @@ h2 {
     font-family: 'Hind', sans-serif;
     text-align: center;
     font-size: xx-large;
+}
+
+.link {
+    font-family: 'Hind', sans-serif;
+    display: block;
+    text-align: center;
+    font-size: large;
+    color: black;
 }
 
 h3 { 
@@ -107,16 +116,22 @@ label {
     font-size: large;
 }
 
+a {
+    color: #fdd900;
+}
+
+
     </style>
     <h2>Kaktus-Checker</h2>
     <h3>Zapomínáš zkontrolovat operátora MujKaktus, zda má výhodnou slevu? To se ti už nestane.</h3>
     <h3>Jakmile se objeví nová sleva pošleme ti email.</h3> 
 
     <form action="/" method="post">
-        <label for="mail">Tvá emailová adresa</label>
-        <input type="email" id="mail" name="mail" required>
-        <button type="submit" class="button">Zaregistrovat email</button>
+        <label for="email"><span class="material-icons">email</span>&nbsp;Tvá emailová adresa</label>
+        <input type="email", id="email", name="email" required></input>
+        <button type="submit" class="button"><span class="material-icons">how_to_reg</span>&nbsp;Registrovat se</button>
     </form>
+    <a class="link" href="/delaccount">Nechceš již dostávat emaily?</a>
     <footer>
                <div class="footer">Developed by <a href="https://github.com/DaneeSkripter">DaneeSkripter</a></div>
     </footer>
