@@ -4,6 +4,7 @@ const express = require("express");
 const app = express()
 const emails = require("./json/emails.json")
 const nodemailer = require("nodemailer")
+const dates = require("./json/dates.json")
 
 app.set("view-engine", "ejs")
 
@@ -74,6 +75,9 @@ const date = `${day}. ${month}.`
 request({url: 'https://www.mujkaktus.cz/', jar: cookieJar}, function (error, response, body) {
   if (!error && response.statusCode == 200) {
    if (body.includes(date)) {
+      if (dates.includes(date)) {
+        console.log("Email byl dnes jiz odeslan, proto neodesilam dalsi")
+      } else {
         transporter.sendMail({
           from: {
             name: "Kaktus-Checker",
@@ -89,6 +93,10 @@ request({url: 'https://www.mujkaktus.cz/', jar: cookieJar}, function (error, res
             console.log("Emaily odeslany")
           }
         })
+        dates.push(date)
+        const datesStringified = JSON.stringify(dates)
+        fs.writeFileSync("./json/dates.json", datesStringified, "utf-8")
+      }
     }
   }
 });
