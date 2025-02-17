@@ -5,8 +5,14 @@ const app = express()
 const emails = require("./json/emails.json")
 const nodemailer = require("nodemailer")
 const dates = require("./json/dates.json")
+const nunjucks = require("nunjucks")
 
-app.set("view-engine", "ejs")
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app
+});
+
+app.use("/", express.static("public"))
 
 app.use(express.urlencoded({ extended: false}))
 
@@ -17,7 +23,7 @@ if (process.env.NODE_ENV !== "production") {
 const RateLimit = require('express-rate-limit');
 const limiter = RateLimit({
   windowMs: 1*60*1000, // 1 minute
-  max: 5
+  max: 60
 });
 
 // apply rate limiter to all requests
@@ -25,23 +31,23 @@ app.use(limiter);
 
 
 app.get("/", function (req, res) {
-    res.render(__dirname + "/views/index.ejs", {})
+    res.render("index.html", {})
 })
 
 app.post("/",  function (req, res) {
     const email = req.body.email
     if (emails.includes(email)) {
-      res.render(__dirname + "/views/message.ejs", { message: "Tato emailová adresa je již zaregistrovaná."})
+      res.render("message.html", { message: "Tato emailová adresa je již zaregistrovaná."})
     } else {
       emails.push(email)
       const emailsStringified = JSON.stringify(emails)
       fs.writeFileSync("./json/emails.json", emailsStringified, "utf-8")
-      res.render(__dirname + "/views/message.ejs", { message: "Tvá emailová adresa byla úspěšně zaregistrovaná!"})
+      res.render("message.html", { message: "Tvá emailová adresa byla úspěšně zaregistrovaná!"})
     }
 })
 
 app.get("/delaccount", function (req, res) {
-  res.render(__dirname + "/views/cancelemail.ejs")
+  res.render("cancelemail.html")
 })
 
 app.post("/delaccount", function (req, res) {
@@ -50,9 +56,9 @@ app.post("/delaccount", function (req, res) {
     const newemails = emails.filter((e) => e !== email)
     const emailsStringified = JSON.stringify(newemails)
     fs.writeFileSync("./json/emails.json", emailsStringified, "utf-8")
-    res.render(__dirname + "/views/message.ejs", { message: "Tvá emailová adresa byla úspěšně odebrána."})
+    res.render("message.html", { message: "Tvá emailová adresa byla úspěšně odebrána."})
   } else {
-    res.render(__dirname + "/views/message.ejs", { message: "Tato emailová adresa není zaregistrovaná."})
+    res.render("message.html", { message: "Tato emailová adresa není zaregistrovaná."})
   }
 })
 
@@ -105,7 +111,7 @@ request({url: 'https://www.mujkaktus.cz/', jar: cookieJar}, function (error, res
 
 
 app.get("/*", function (req, res) {
-  res.render(__dirname + "/views/message.ejs", {message: "Chyba 404 - Tato stránka neexistuje"})
+  res.render("message.html", {message: "Chyba 404 - Tato stránka neexistuje"})
 })
 
 app.listen(4000)
