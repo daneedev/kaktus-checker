@@ -1,0 +1,97 @@
+body {
+    background-color: #fdd900;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    font-size: xx-large;
+}
+
+h3 { 
+    font-family: 'Hind', sans-serif;
+    text-align: center;
+    font-size: x-large;
+}
+
+.button {
+    color: #fdd900;
+    height: 60px;
+    width: 250px;
+    background-color: black;
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: 'Hind', sans-serif;    
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.button:hover {
+    color: #fdd900;
+    height: 60px;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.614);
+    font-size: 20px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: 'Hind', sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+.footer {
+            position: fixed;
+            padding: 10px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer*/
+            height: 40px;
+            background: black;
+            color: white;
+            font-family: 'Hind', sans-serif;
+            text-align: center;
+}
+
+input[type="email"] {
+    height: 60px;
+    width: 250px;
+    background-color: white;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Hind', sans-serif;
+    border-radius: 24px;
+    transition-duration: 0.4s;
+    border:0cm
+}
+
+label {
+    font-family: 'Hind', sans-serif;
+    display: block;
+    text-align: center;
+    font-size: large;
+}
+
+a {
+    color: #fdd900;
+}
