@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+
+{% block head %}
+<title>Kaktus-Checker</title>
+{% endblock %}
+
+{% block content %}
+<h3>{{ message }}</h3> 
+<form action="/" method="get">
+    <button type="submit" class="button"><span class="material-icons">reply</span>&nbsp;Zpět</button>
+</form>
+{% endblock %}

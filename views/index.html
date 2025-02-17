@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+
+{% block head %}
+<title>Kaktus-Checker | Home</title>
+{% endblock %}
+
+{% block content %}
+<h3>Zapomínáš zkontrolovat operátora MujKaktus, zda má výhodnou slevu? To se ti už nestane.</h3>
+<h3>Jakmile se objeví nová sleva pošleme ti email.</h3> 
+
+<form action="/" method="post">
+    <label for="email"><span class="material-icons">email</span>&nbsp;Tvá emailová adresa</label>
+    <input type="email", id="email", name="email" required></input>
+    <button type="submit" class="button"><span class="material-icons">how_to_reg</span>&nbsp;Registrovat se</button>
+</form>
+<a class="link" href="/delaccount">Nechceš již dostávat emaily?</a>
+{% endblock %}
