@@ -6,9 +6,8 @@
 
 {% block content %}
 <h3>Zrušení emailů</h3>
-<form action="/delaccount" method="post">
-    <label for="email"><span class="material-icons">email</span>&nbsp;Tvá emailová adresa</label>
-    <input type="email", id="email", name="email" required></input>
-    <button type="submit" class="button"><span class="material-icons">delete</span>&nbsp;Zrušit účet</button>
+<form action="/acc/cancel" method="post">
+    <input type="email" id="email", name="email" placeholder="Tvá emailová adresa" required></input>
+    <button type="submit" class="button"><i class="fa-solid fa-trash"></i>&nbsp;Zrušit účet</button>
 </form>
 {% endblock %}

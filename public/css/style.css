@@ -1,97 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 body {
-    background-color: #fdd900;
-    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    background-image: url("/img/background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
+    padding: 0;
+    height: 100%;
     min-height: 100vh;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h2 {
-    font-family: 'Hind', sans-serif;
+.infocontainer {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    background-color: #ffffff;
+}
+
+.description {
     text-align: center;
-    font-size: xx-large;
 }
 
-h3 { 
-    font-family: 'Hind', sans-serif;
-    text-align: center;
-    font-size: x-large;
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+p {
+    font-size: 20px;
+    font-weight: 200;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#email {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
 .button {
-    color: #fdd900;
-    height: 60px;
-    width: 250px;
-    background-color: black;
-    font-size: 20px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #00916E;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
-    font-family: 'Hind', sans-serif;    
-    border-radius: 24px;
+    width: 100%;
     transition-duration: 0.4s;
-    border:0cm
+    border: 2px solid #00916E;
 }
-
 .button:hover {
-    color: #fdd900;
-    height: 60px;
-    width: 250px;
-    background-color: rgba(0, 0, 0, 0.614);
-    font-size: 20px;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    font-family: 'Hind', sans-serif;
-    border-radius: 24px;
-    transition-duration: 0.4s;
-    border:0cm
+    background: none;
+    color: #00916E;
 }
 
-.footer {
-            position: fixed;
-            padding: 10px 10px 0px 10px;
-            bottom: 0;
-            width: 100%;
-            /* Height of the footer*/
-            height: 40px;
-            background: black;
-            color: white;
-            font-family: 'Hind', sans-serif;
-            text-align: center;
-}
-
-input[type="email"] {
-    height: 60px;
-    width: 250px;
-    background-color: white;
-    font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    font-family: 'Hind', sans-serif;
-    border-radius: 24px;
-    transition-duration: 0.4s;
-    border:0cm
-}
-
-label {
-    font-family: 'Hind', sans-serif;
-    display: block;
-    text-align: center;
-    font-size: large;
-}
-
-a {
-    color: #fdd900;
+.link {
+    color: #00916E;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
 }
