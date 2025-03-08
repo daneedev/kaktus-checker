@@ -6,10 +6,12 @@ const emails = require("./json/emails.json")
 const nodemailer = require("nodemailer")
 const dates = require("./json/dates.json")
 const nunjucks = require("nunjucks")
+const accRoutes = require("./routes/acc")
 
 nunjucks.configure('views', {
   autoescape: true,
-  express: app
+  express: app,
+  watch: true
 });
 
 app.use("/", express.static("public"))
@@ -34,33 +36,7 @@ app.get("/", function (req, res) {
     res.render("index.html", {})
 })
 
-app.post("/",  function (req, res) {
-    const email = req.body.email
-    if (emails.includes(email)) {
-      res.render("message.html", { message: "Tato emailová adresa je již zaregistrovaná."})
-    } else {
-      emails.push(email)
-      const emailsStringified = JSON.stringify(emails)
-      fs.writeFileSync("./json/emails.json", emailsStringified, "utf-8")
-      res.render("message.html", { message: "Tvá emailová adresa byla úspěšně zaregistrovaná!"})
-    }
-})
-
-app.get("/delaccount", function (req, res) {
-  res.render("cancelemail.html")
-})
-
-app.post("/delaccount", function (req, res) {
-  const email = req.body.email
-  if (emails.includes(email)) {
-    const newemails = emails.filter((e) => e !== email)
-    const emailsStringified = JSON.stringify(newemails)
-    fs.writeFileSync("./json/emails.json", emailsStringified, "utf-8")
-    res.render("message.html", { message: "Tvá emailová adresa byla úspěšně odebrána."})
-  } else {
-    res.render("message.html", { message: "Tato emailová adresa není zaregistrovaná."})
-  }
-})
+app.use("/acc", accRoutes)
 
 const transporter = nodemailer.createTransport({
   host: process.env.mailHost,
