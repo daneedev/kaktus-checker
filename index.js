@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== "production") {
 const RateLimit = require('express-rate-limit');
 const limiter = RateLimit({
   windowMs: 1*60*1000, // 1 minute
-  max: 60
+  max: 200
 });
 
 // apply rate limiter to all requests
